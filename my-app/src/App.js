@@ -7,12 +7,12 @@ function App() {
     let title = "타이틀";
     let date = "5월 10일";
 
-    let [getTitle, setTitle] = useState(['title1','title2','title3']);
+    let [getTitle, setTitle] = useState(['제목이요','우히히히','개피곤']);
     let [getDate, setDate] = useState(['5/10','5/11','5/12']);
     let [getFav,setFav] = useState(0);
     function orderTxt() {
         let cloneTitle = [...getTitle];
-        
+        setTitle(cloneTitle.sort());
     }
 
     
