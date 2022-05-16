@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-
+import Modal from './Modal';
+import Header from './Header';
 function App() {
     let cont = "컨텐츠";
     let title = "타이틀";
@@ -18,16 +19,7 @@ function App() {
     
     return ( 
         <div className="App">
-            <div className="header">
-                <h1>헤더</h1>
-            </div>
-            <div className="nav">
-                <ul>
-                    <li><a href="#">메뉴1</a></li>
-                    <li><a href="#">메뉴2</a></li>
-                    <li><a href="#">메뉴3</a></li>
-                </ul>
-            </div>
+            <Header/>
             <div className="cont">
                 <h2>{title}</h2>
                 <p>{cont}</p>
