@@ -1,0 +1,5 @@
+body {margin:0; padding:0; border:0;}
+.App {text-align:center;}
+.cont {font-size:15px; color:#333;}
+.nav {display:flex; background:black; width:100%; color:#fff; padding:10px 20px;}
+.list {border-bottom:#333 1px solid;}
