@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Modal.css';
-function Modal() {
+const Modal = () => {
     let [getTitle, setTitle] = useState(['제목이요','우히히히','개피곤']);
     let [getCont, setCont] = useState(['글상세1','글상세2','글상세3']);
     let [getDate, setDate] = useState(['5/10','5/11','5/12']);

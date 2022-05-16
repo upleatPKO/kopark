@@ -31,22 +31,26 @@ function App() {
                 }}>글수정</button>
                 <button onClick={orderTxt}>정렬</button>
             </div>
-            <div className="list">
-                <h3> 제목 : {getTitle[0]} <span onClick={
-                    ()=>{
-                        setFav(getFav+1)
-                    }}>좋아요</span>{getFav}</h3>
-                <p> 등록일 : {getDate[0]}</p>
-            </div>
-            <div className="list">
-                <h3> 제목 : {getTitle[1]}<span>좋아요</span></h3>
-                <p> 등록일 : {getDate[1]}</p>
-            </div>
-            <div className="list">
-                <h3> 제목 : {getTitle[2]}<span>좋아요</span></h3>
-                <p> 등록일 : {getDate[2]}</p>
-            </div>
+           
+            {
+                getTitle.map(function(data,index) {
+                    return(
+                    <div className="list">
+                    <h3> 제목 : {data} <span onClick={
+                        ()=>{
+                            setFav(index+1)
+                        }}>좋아요</span>{getFav}</h3>
+                    <p> 등록일 : {getDate[0]}</p>
+                    </div>
+                    )
+                })
+                
+                
+            }
+        <Modal></Modal>
+
         </div>
+
     )
 }
 
