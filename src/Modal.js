@@ -1,34 +1,36 @@
 import { useState } from 'react';
 import './Modal.css';
-const Modal = () => {
-    let [getTitle, setTitle] = useState(['제목이요','우히히히','개피곤']);
-    let [getCont, setCont] = useState(['글상세1','글상세2','글상세3']);
-    let [getDate, setDate] = useState(['5/10','5/11','5/12']);
-    let [getFav,setFav] = useState(0);
-    function orderTxt() {
+const Modal = (props) => {
+    
+    /* function orderTxt() {
         let cloneTitle = [...getTitle];
         setTitle(cloneTitle.sort());
-    }
+    } */
 
     return ( 
-        <div className="modal">
+        <div className="modal" style={{color:'#000',backgroundColor: props.color }}>
             <div className="mcont">
-                <h2>제목 : {getTitle}</h2>
-                <p>등록일: {getDate}</p>
-                <p>글 : {getCont}</p>
+                <h2>제목 : {props.title[props.index]}</h2>
+                <p>등록일: {props.date[props.index]}</p>
+                <p>글 : {props.cont[props.index]}</p>
+                <p>일반 text 전송 테스트 : {props.text} </p>
                 
                 <button onClick={ ()  =>{
-                    let copy = [...getTitle];
-                    copy[0] = "title1 update";
-                    setTitle(copy);
+                    
                 }}>글수정</button>
                  <button onClick={ ()  =>{
-                    let copy = [...getTitle];
-                    copy[0] = "title1 update";
-                    setTitle(copy);
+                     /* let cloneTitle = [...props.title];
+                     cloneTitle.slice(props.index,1);
+                     setTitle(cloneTitle);
+                     let cloneDate = [...props.date];
+                     cloneDate.slice(props.index,1);
+                     setDate(cloneDate);
+                     let cloneCont = [...props.cont];
+                     cloneCont.slice(props.index,1);
+                     setCont(cloneCont); */
+
                 }}>글삭제</button>
             </div>
-            
         </div>
     )
 }
