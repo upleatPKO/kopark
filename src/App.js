@@ -13,6 +13,7 @@ const App = () => {
     let [getColor,setColor] = useState('#eee')
     let [getFav,setFav] = useState(0);
     let [getIndex,setIndex] = useState(0);
+    let [getState,setState] = useState(false);
     let orderTxt = () => {
         let cloneTitle = [...getTitle];
         setTitle(cloneTitle.sort());
@@ -28,22 +29,20 @@ const App = () => {
                     getTitle.map(function(data,index) {
                         return(
                         <li key={index}>
-                        <h3> 제목 : <a href="#" onClick={ ()  =>{
-                        setIndex(index)
-                    }}>{data}</a> | <span onClick={
-                            ()=>{
-                                setFav(index+1)
-                            }}>좋아요</span>{getFav[index]}</h3>
-                        <p> 등록일 : {getDate[index]}</p>
-
+                            <h3> 제목 : <a href="#" onClick={ ()  =>{
+                            setIndex(index); setState(true);
+                            }}>{data}</a> | <span onClick={
+                                ()=>{
+                                    setFav(index+1)
+                                }}>좋아요</span>{getFav[index]}</h3>
+                            <p> 등록일 : {getDate[index]}</p>
                         </li>
                         )
                     })
-                    
-                    
                 }
                 </ul>
-                <Modal title={getTitle} cont={getCont} date={getDate} text="text" color={getColor} setTitle={setTitle} index={getIndex}></Modal>
+                
+                {(getState)?<Modal title={getTitle} cont={getCont} date={getDate} text="text" color={getColor} setTitle={setTitle} index={getIndex}></Modal>:''}
                 <input type="text" id="inp"></input><button onClick={(e)=>{ 
                     let cloneTitle = [...getTitle]; 
                     let cloneData = [...getDate];
