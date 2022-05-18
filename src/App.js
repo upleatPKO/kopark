@@ -30,10 +30,10 @@ const App = () => {
                         <li key={index}>
                         <h3> 제목 : <a href="#" onClick={ ()  =>{
                         setIndex(index)
-                    }}>{data}</a> | <span onClick={
+                    }}>{data}</a> | <a href="#" onClick={
                             ()=>{
-                                setFav(index+1)
-                            }}>좋아요</span>{getFav[index]}</h3>
+                                setFav[index](index+1)
+                            }}>좋아요</a>{getFav[index]}</h3>
                         <p> 등록일 : {getDate[index]}</p>
                         </li>
                         )
