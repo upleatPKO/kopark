@@ -35,6 +35,7 @@ const App = () => {
                                 setFav(index+1)
                             }}>좋아요</span>{getFav[index]}</h3>
                         <p> 등록일 : {getDate[index]}</p>
+
                         </li>
                         )
                     })
@@ -42,7 +43,7 @@ const App = () => {
                     
                 }
                 </ul>
-                <Modal title={getTitle} cont={getCont} date={getDate} text="text" color={getColor} index={getIndex}></Modal>
+                <Modal title={getTitle} cont={getCont} date={getDate} text="text" color={getColor} setTitle={setTitle} index={getIndex}></Modal>
                 <input type="text" id="inp"></input><button onClick={(e)=>{ 
                     let cloneTitle = [...getTitle]; 
                     let cloneData = [...getDate];

@@ -19,16 +19,15 @@ const Modal = (props) => {
                     
                 }}>글수정</button>
                  <button onClick={ ()  =>{
-                     /* let cloneTitle = [...props.title];
+                     let cloneTitle = [...props.title];
                      cloneTitle.slice(props.index,1);
-                     setTitle(cloneTitle);
-                     let cloneDate = [...props.date];
+                     props.setTitle(cloneTitle);
+                     /* let cloneDate = [...props.date];
                      cloneDate.slice(props.index,1);
                      setDate(cloneDate);
                      let cloneCont = [...props.cont];
                      cloneCont.slice(props.index,1);
                      setCont(cloneCont); */
-
                 }}>글삭제</button>
             </div>
         </div>
