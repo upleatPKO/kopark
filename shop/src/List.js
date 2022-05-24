@@ -1,21 +1,18 @@
 
-import { useState } from 'react';
 import { Container,Row} from 'react-bootstrap';
-import Data from './data';
+import { useState } from 'react';
+
 import Card from './Card';
-import './List.scss';
-
-
+import './Card.scss';
 
 function List(props) {
-  let [getShoes, setShoes] = useState({Data});
 
   return (
     <>
 <Container>
   <Row>
     {
-        Data.map(function(data) {
+        props.shoes.map(function(data) {
           return(
             <Card shoes={data}></Card>
           )

@@ -11,21 +11,15 @@ function Navbars() {
     <Nav className="me-auto">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/detail">Products</Nav.Link>
+      <Nav.Link href="/list">Products</Nav.Link>
       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
       <NavDropdown.Item href="/">Drop1</NavDropdown.Item>
         <NavDropdown.Item href="/about">Drop2</NavDropdown.Item>
         <NavDropdown.Item href="/detail">Drop3</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
     </Nav>
-    <Nav>
-      <Nav.Link href="#deets">More deets</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Dank memes
-      </Nav.Link>
-    </Nav>
+
   </Navbar.Collapse>
   </Container>
 </Navbar>
