@@ -1,0 +1,33 @@
+.collection {
+    margin:0 10px;
+    padding:20px 0;
+    color:#333;
+    text-align:center; 
+    background-color:#eee; 
+
+    &_link{
+        display:inline-block;
+        position:relative;
+        color:#666;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        color:#666;
+
+        }
+        img {
+            width:100%;
+        }
+    }
+    &_price,&_tit {
+        text-align:center; 
+        line-height:1.8;
+        margin:0;
+    }
+    &_tit {
+        font-weight: bold;
+        margin-top:10px;
+        
+    }
+}
