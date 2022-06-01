@@ -19,16 +19,15 @@ function Navbars() {
       <Link to="/list">Products</Link>
       <Link to="/pages/Detail">Detail</Link> */}
 
-      <Nav.Link onClick={()=> {navigate('/')}}>Home</Nav.Link>
-      <Nav.Link onClick={()=> {navigate('/list')}}>Products</Nav.Link>
-      <Nav.Link onClick={()=> {navigate('/about')}}>About</Nav.Link>
-      <Nav.Link onClick={()=> {navigate('/detail')}}>Detail</Nav.Link>
+      <Nav.Link className="navLink" onClick={()=> {navigate('/')}}>Home</Nav.Link>
+      <Nav.Link className="navLink" onClick={()=> {navigate('/list')}}>Products</Nav.Link>
+      <Nav.Link className="navLink" onClick={()=> {navigate('/about')}}>About</Nav.Link>
 
       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-      <NavDropdown.Item href="/">Drop1</NavDropdown.Item>
-        <NavDropdown.Item href="/about">Drop2</NavDropdown.Item>
-        <NavDropdown.Item href="/detail">Drop3</NavDropdown.Item>
+        <NavDropdown.Item href="/about">About</NavDropdown.Item>
         <NavDropdown.Divider />
+
+        <NavDropdown.Item onClick={()=> {navigate('/list')}}>Products</NavDropdown.Item>
       </NavDropdown>
     </Nav>
 
