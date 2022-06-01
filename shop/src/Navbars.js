@@ -22,6 +22,7 @@ function Navbars() {
       <Nav.Link className="navLink" onClick={()=> {navigate('/')}}>Home</Nav.Link>
       <Nav.Link className="navLink" onClick={()=> {navigate('/list')}}>Products</Nav.Link>
       <Nav.Link className="navLink" onClick={()=> {navigate('/about')}}>About</Nav.Link>
+      <Nav.Link className="navBack" onClick={()=> {navigate(-1)}}>Back</Nav.Link>
 
       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/about">About</NavDropdown.Item>
