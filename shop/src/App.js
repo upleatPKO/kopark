@@ -16,25 +16,19 @@ function App() {
   return (
     <div className="App">
 
+      <header className="App-header">
+      </header>
+      <Navbars></Navbars>
 
+      <div className="bg"><img src="/img/common/bg.png"/></div>
       <Routes>
-        <Route path="/" element={ 
-          <>
-              <header className="App-header">
-              </header>
-              <Navbars></Navbars>
-              <div className="bg"><img src="/img/common/bg.png"/></div>
-              <Outlet></Outlet>
-          </>
-        } >
-            <Route path="/list" element={<List shoes={Data}></List>}/>
-            <Route path="/about" element={ <About/> }/>
-            <Route path="/pages/Detail" element={ <Detail shoes={Data}/> }/>
-        </Route>        
+        <Route path="/" element={<></>} />
+        <Route path="/list" element={<List shoes={Data}></List>}/>
+        <Route path="/about" element={ <About/> }/>
+        <Route path="/detail/:id" element={ <>상세페이지임 <Detail datails={Data} /></> }/>       
         <Route path="*" element={ <div>없는페이지임</div> } />
       </Routes>
     </div>
-
   );
 }
 
