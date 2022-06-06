@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.62cbce41.css",
-    "main.js": "/static/js/main.f4c428c0.js",
-    "static/js/787.23170c61.chunk.js": "/static/js/787.23170c61.chunk.js",
+    "main.css": "/kopark/static/css/main.62cbce41.css",
+    "main.js": "/kopark/static/js/main.9c74ebe0.js",
+    "kopark/static/js/787.23170c61.chunk.js": "/kopark/static/js/787.23170c61.chunk.js",
     "index.html": "/index.html",
-    "main.62cbce41.css.map": "/static/css/main.62cbce41.css.map",
-    "main.f4c428c0.js.map": "/static/js/main.f4c428c0.js.map",
-    "787.23170c61.chunk.js.map": "/static/js/787.23170c61.chunk.js.map"
+    "main.62cbce41.css.map": "/kopark/static/css/main.62cbce41.css.map",
+    "main.9c74ebe0.js.map": "/kopark/static/js/main.9c74ebe0.js.map",
+    "787.23170c61.chunk.js.map": "/kopark/static/js/787.23170c61.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62cbce41.css",
-    "static/js/main.f4c428c0.js"
+    "kopark/static/css/main.62cbce41.css",
+    "kopark/static/js/main.9c74ebe0.js"
   ]
 }
