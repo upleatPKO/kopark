@@ -1,5 +1,5 @@
 import { Navbar,Nav,NavDropdown,Container} from 'react-bootstrap';
-import { Routes, Route, Link,useNavigate, Outlet} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import './Navbars.scss';
 function Navbars() {
@@ -9,7 +9,7 @@ function Navbars() {
     <>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
