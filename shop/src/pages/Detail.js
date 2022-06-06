@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import '../Detail.scss';
+import './Detail.scss';
 
 function Detail(props) {
   let {id} = useParams();
@@ -14,7 +14,6 @@ function Detail(props) {
       <p><img src={"/img/pd/shoes"+(parseInt(thisItem.id)+1)+".jpg"} /></p>
       <p> {thisItem.content}</p>
       <p> {thisItem.price}</p>
-
     </div>
   );
 }

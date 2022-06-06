@@ -5,7 +5,6 @@ import './Card.scss';
 
 function Card(props) {
   let navigate = useNavigate();
-
   return (
     <>
     <Col className="collection" onClick={()=> {navigate('/detail/'+props.shoes.id)}} key={props.shoes.id}>
