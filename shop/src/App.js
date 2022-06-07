@@ -32,9 +32,9 @@ function App() {
       <div className="bg"><img src="/img/common/bg.png" alt=""/></div>
       <Routes>
         <Route path="/" element={<></>} />
-        <Route path="/list" element={<List getShoes={getShoes} setShoes={setShoes} ></List>}/>
+        <Route path="/list" element={<List getShoes={[...getShoes]} setShoes={setShoes} ></List>}/>
         <Route path="/about" element={ <About/> }/>
-        <Route path="/detail/:id" element={ <><Detail datails={Data} /></> }/>       
+        <Route path="/detail/:id" element={ <><Detail datails={[...getShoes]} /></> }/>       
         <Route path="*" element={ <div>없는페이지임</div> } />
       </Routes>
     </div>
