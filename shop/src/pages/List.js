@@ -1,6 +1,6 @@
 
 import React,{useEffect, useState} from 'react';
-import { Container,Row} from 'react-bootstrap'
+import { Container,Row,Spinner } from 'react-bootstrap'
 import CardItem from './../Components/CardItem.js'
 import './List.scss';
 import axios from 'axios';
@@ -14,6 +14,7 @@ function List(props) {
   let [getOrder, setOrder] = useState(1);
   let [getMore, setMore] = useState(2);
   let [getVisible, setVisible] = useState(true)
+  let [loading, setLoading] = useState(false)
 
   useEffect(() => {
     console.log('훅');
@@ -38,19 +39,23 @@ function List(props) {
   }
 
   let LoadMore = () => {
+      setLoading(true);
       axios.get('https://codingapple1.github.io/shop/data'+getMore+'.json')
       .then((result) =>{
+        setLoading(false);
         copy = [...copy,...result.data];
         props.setShoes(copy);
         setMore(getMore+1);
-
       })
       .catch(()=>{
         console.log('error'+getMore);
+        setLoading(false);
       })
       if(getMore >= 3) {
         setVisible(false);
       }
+      /* axios.post('/url',{name:'park'}) */
+      /* Promise.all(['https://codingapple1.github.io/shop/data1.json','https://codingapple1.github.io/shop/data2.json']).then(()=>{}) */
   }
   
   return (
@@ -66,6 +71,17 @@ function List(props) {
         })
     }
   </Row>
+  
+  {
+  (loading)&&
+  <div className='centered'>
+    <Spinner animation="border" role="status">
+    <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  </div>
+  }
+
+  
   <div className='centered'>
   {(getVisible)&&<CenterButton onClick={LoadMore}>더보기</CenterButton>}
   </div>

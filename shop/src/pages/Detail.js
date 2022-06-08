@@ -3,6 +3,7 @@ import './Detail.scss';
 import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
+import {Tabs,Tab} from 'react-bootstrap';
 
 let YellowButton = styled.button`
  background: ${props => props.bg};
@@ -19,6 +20,29 @@ let Noti = styled.div `
   background:#eee;
   padding:20px;
 `
+
+function ControlledTabs() {
+  const [key, setKey] = useState('Info');
+
+  return (
+    <Tabs
+      id="controlled-tab-example"
+      activeKey={key}
+      onSelect={(k) => setKey(k)}
+      className="mb-3"
+    >
+      <Tab eventKey="Info" title="Info">
+        <p>tab1</p>
+      </Tab>
+      <Tab eventKey="QnA" title="QnA">
+        <p>tab2</p>
+      </Tab>
+      <Tab eventKey="contact" title="Contact" disabled>
+        <p>tab3</p>
+      </Tab>
+    </Tabs>
+  );
+}
 
 function Detail(props) {
   let navigate = useNavigate();
@@ -50,6 +74,8 @@ function Detail(props) {
       <p> {thisItem.price}</p>
       <YellowButton bg="yellow"> 장바구니 담기 </YellowButton>
       <BlackButton bg="black" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
+
+      <ControlledTabs />
     </div>
   );
 }
