@@ -1,4 +1,3 @@
-
 import React,{useEffect, useState} from 'react';
 import { Container,Row,Spinner } from 'react-bootstrap'
 import CardItem from './../Components/CardItem.js'
@@ -81,9 +80,8 @@ function List(props) {
   </div>
   }
 
-  
   <div className='centered'>
-  {(getVisible)&&<CenterButton onClick={LoadMore}>더보기</CenterButton>}
+  {(getVisible)?<CenterButton onClick={LoadMore}>더보기</CenterButton>:<p>마지막입니다</p>}
   </div>
 </Container>
 

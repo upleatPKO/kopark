@@ -26,19 +26,22 @@ function ControlledTabs() {
 
   return (
     <Tabs
-      id="controlled-tab-example"
-      activeKey={key}
-      onSelect={(k) => setKey(k)}
+      id="bootTab" defaultActiveKey={"QnA"}
+      // activeKey={key}
+      // onSelect={(k) => setKey(k)}
       className="mb-3"
     >
       <Tab eventKey="Info" title="Info">
-        <p>tab1</p>
+        <p>Info Tab Content...<br/> 우와아아아앙</p>
       </Tab>
       <Tab eventKey="QnA" title="QnA">
-        <p>tab2</p>
+        <p>QnA Tab Content</p>
       </Tab>
-      <Tab eventKey="contact" title="Contact" disabled>
-        <p>tab3</p>
+      <Tab eventKey="contact" title="Contact">
+        <p>Contact Tab Content</p>
+      </Tab>
+      <Tab eventKey="disabled" title="Disabled Tab" disabled>
+        <p>Disabled Tab Content</p>
       </Tab>
     </Tabs>
   );
