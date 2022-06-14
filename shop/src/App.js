@@ -3,6 +3,7 @@ import Navbars from './Components/Navbars.js';
 import List from './Pages/List.js';
 import About from './Pages/About.js';
 import Detail from './Pages/Detail.js';
+import Cart from './Pages/Cart.js';
 import Data from './Store/data.js';
 import './App.scss';
 import { Routes, Route} from 'react-router-dom';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/list" element={<List getShoes={[...getShoes]} setShoes={setShoes} ></List>}/>
         <Route path="/about" element={ <About/> }/>
         <Route path="/detail/:id" element={ <><Detail datails={[...getShoes]} /></> }/>       
+        <Route path="/cart" element={ <Cart/> }/>       
         <Route path="*" element={ <div>없는페이지임</div> } />
       </Routes>
     </div>

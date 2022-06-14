@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import {Tabs,Tab} from 'react-bootstrap';
+import {useSelector,useDispatch} from 'react-redux'
+import {addItem} from './../Store/redux.store.js';
 
 let YellowButton = styled.button`
  background: ${props => props.bg};
@@ -49,6 +51,13 @@ function ControlledTabs() {
 
 function Detail(props) {
   let navigate = useNavigate();
+  let store = useSelector((state) => {
+    return state;
+  })
+
+
+  let dispatch = useDispatch()
+
 
   let [getAlert, setAlert] = useState(true);
 
@@ -76,7 +85,8 @@ function Detail(props) {
       <p> {thisItem.content}</p>
       <p> {thisItem.price}</p>
       <YellowButton bg="yellow"> 장바구니 담기 </YellowButton>
-      <BlackButton bg="black" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
+      <BlackButton bg="black" onClick={()=> {dispatch(addItem(thisItem))}}> 주문하기 </BlackButton>
+      <BlackButton bg="grey" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
 
       <ControlledTabs />
     </div>

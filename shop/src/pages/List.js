@@ -4,6 +4,7 @@ import CardItem from './../Components/CardItem.js'
 import './List.scss';
 import axios from 'axios';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 let CenterButton = styled.button`
 text-align:center;
 margin:30px auto;
@@ -56,35 +57,36 @@ function List(props) {
       /* axios.post('/url',{name:'park'}) */
       /* Promise.all(['https://codingapple1.github.io/shop/data1.json','https://codingapple1.github.io/shop/data2.json']).then(()=>{}) */
   }
+  let storeData = useSelector((state)=>state);
+  console.log(storeData);
+
   
   return (
     <>
-<Container className='lists'>
-  <p style={{"textAlign":"right"}}><button onClick={ orderPd }>이름순 정렬</button></p>
-  <Row Row xs={1} md={3} className="g-4">
-    {
-          props.getShoes.map(function(data,idx) {
-          return (
-            <CardItem shoes={data} key={idx}></CardItem>
-          )
-        })
-    }
-  </Row>
-  
-  {
-  (loading)&&
-  <div className='centered'>
-    <Spinner animation="border" role="status">
-    <span className="visually-hidden">Loading...</span>
-    </Spinner>
-  </div>
-  }
+    <Container className='lists'>
+      <p style={{"textAlign":"right"}}><button onClick={ orderPd }>이름순 정렬</button></p>
+      <Row Row xs={1} md={3} className="g-4">
+        {
+              props.getShoes.map(function(data,idx) {
+              return (
+                <CardItem shoes={data} key={idx}></CardItem>
+              )
+            })
+        }
+      </Row>
+      {
+      (loading)&&
+      <div className='centered'>
+        <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+      }
 
-  <div className='centered'>
-  {(getVisible)?<CenterButton onClick={LoadMore}>더보기</CenterButton>:<p>마지막입니다</p>}
-  </div>
-</Container>
-
+      <div className='centered'>
+      {(getVisible)?<CenterButton onClick={LoadMore}>더보기</CenterButton>:<p>마지막입니다</p>}
+      </div>
+    </Container>
     </>
   );
 }
