@@ -61,21 +61,24 @@ function Detail(props) {
 
   let [getAlert, setAlert] = useState(true);
 
+  let {id} = useParams();
+  let thisItem = props.datails.find((item)=>{
+    return item.id === parseInt(id);
+  });
+  // let thisItem = props.datails[id];
+
   useEffect(()=>{
     let timer = setTimeout(()=>{setAlert(!getAlert)},2000);
     console.log(2);
+    let watched = JSON.parse(localStorage.getItem('watched'))
+    watched.push(thisItem);
+    localStorage.setItem('watched',JSON.stringify(watched)); 
 
     return () => {
       clearTimeout(timer);
       console.log(1);
     }
   },[]);
-
-  let {id} = useParams();
-  let thisItem = props.datails.find((item)=>{
-    return item.id === parseInt(id);
-  });
-  // let thisItem = props.datails[id];
 
   return (
     <div className="pdDetail">
@@ -84,7 +87,12 @@ function Detail(props) {
       <p><img src={"/img/pd/shoes"+(parseInt(thisItem.id)+1)+".jpg"} alt=""/></p>
       <p> {thisItem.content}</p>
       <p> {thisItem.price}</p>
-      <YellowButton bg="yellow"> 장바구니 담기 </YellowButton>
+      <YellowButton bg="yellow" onClick={()=>{ 
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        cart.push(thisItem);
+        localStorage.setItem('cart',JSON.stringify(cart)); 
+    
+        }}> 장바구니 담기 </YellowButton>
       <BlackButton bg="black" onClick={()=> {dispatch(addItem(thisItem))}}> 주문하기 </BlackButton>
       <BlackButton bg="grey" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
 

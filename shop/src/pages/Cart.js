@@ -16,6 +16,8 @@ function Cart() {
 
     return (
         <>
+        <h3>CARTS</h3>
+        <p>from Redux store</p>
         <p>
             <a href="#" onClick={(e)=>{ 
                 e.preventDefault(); 
@@ -48,9 +50,35 @@ function Cart() {
                         </td>
                     </tr>
                 )
+                
             }
             </tbody>
-        </Table>        
+        </Table>     
+        <h3>RECENTS </h3>
+        <p>from localStorage</p>
+        <Table striped bordered hover>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>content</th>
+            </tr>
+            </thead>
+            <tbody>
+            {
+                JSON.parse(localStorage.getItem('watched'))
+                    .map((item, idx) => {
+                        return (
+                        <tr key = {idx}>
+                            <td>{item.id}</td>
+                            <td>{item.title}</td>
+                            <td>{item.content}</td>
+                        </tr>
+                        )
+                    })
+            }
+            </tbody>
+        </Table> 
         </>
     )
 }

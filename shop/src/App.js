@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbars from './Components/Navbars.js';
 import List from './Pages/List.js';
 import About from './Pages/About.js';
@@ -21,8 +21,10 @@ import { Routes, Route} from 'react-router-dom';
 // }
 function App() {
   let [getShoes, setShoes] = useState([...Data]);
-
-
+  useEffect(()=>{
+    !(localStorage.getItem('watched')) && localStorage.setItem('watched',JSON.stringify([]))
+    !(localStorage.getItem('cart')) && localStorage.setItem('cart',JSON.stringify([]))
+  },[])
   return (
     <div className="App">
 

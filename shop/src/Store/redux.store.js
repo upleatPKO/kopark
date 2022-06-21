@@ -16,7 +16,6 @@ let cart = createSlice({
             increaseCount(state, action) {
                 let item = state.find((item, idx) =>{
                     return item.id == action.payload
-                    
                 })
                 item.count ++
             },
