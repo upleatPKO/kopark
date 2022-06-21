@@ -72,6 +72,8 @@ function Detail(props) {
     console.log(2);
     let watched = JSON.parse(localStorage.getItem('watched'))
     watched.push(thisItem);
+    watched = Array.from(new Set(watched));
+
     localStorage.setItem('watched',JSON.stringify(watched)); 
 
     return () => {
@@ -90,6 +92,7 @@ function Detail(props) {
       <YellowButton bg="yellow" onClick={()=>{ 
         let cart = JSON.parse(localStorage.getItem('cart'))
         cart.push(thisItem);
+        cart = Array.from(new Set(cart));
         localStorage.setItem('cart',JSON.stringify(cart)); 
     
         }}> 장바구니 담기 </YellowButton>
