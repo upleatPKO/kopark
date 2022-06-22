@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import {Tabs,Tab} from 'react-bootstrap';
+import {useSelector,useDispatch} from 'react-redux'
+import {addItem} from './../Store/redux.store.js';
 
 let YellowButton = styled.button`
  background: ${props => props.bg};
@@ -49,24 +51,36 @@ function ControlledTabs() {
 
 function Detail(props) {
   let navigate = useNavigate();
+  let store = useSelector((state) => {
+    return state;
+  })
+
+
+  let dispatch = useDispatch()
+
 
   let [getAlert, setAlert] = useState(true);
-
-  useEffect(()=>{
-    let timer = setTimeout(()=>{setAlert(!getAlert)},2000);
-    console.log(2);
-
-    return () => {
-      clearTimeout(timer);
-      console.log(1);
-    }
-  },[]);
 
   let {id} = useParams();
   let thisItem = props.datails.find((item)=>{
     return item.id === parseInt(id);
   });
   // let thisItem = props.datails[id];
+
+  useEffect(()=>{
+    let timer = setTimeout(()=>{setAlert(!getAlert)},2000);
+    console.log(2);
+    let watched = JSON.parse(localStorage.getItem('watched'))
+    watched.push(thisItem);
+    watched = Array.from(new Set(watched));
+
+    localStorage.setItem('watched',JSON.stringify(watched)); 
+
+    return () => {
+      clearTimeout(timer);
+      console.log(1);
+    }
+  },[]);
 
   return (
     <div className="pdDetail">
@@ -75,8 +89,15 @@ function Detail(props) {
       <p><img src={"/img/pd/shoes"+(parseInt(thisItem.id)+1)+".jpg"} alt=""/></p>
       <p> {thisItem.content}</p>
       <p> {thisItem.price}</p>
-      <YellowButton bg="yellow"> 장바구니 담기 </YellowButton>
-      <BlackButton bg="black" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
+      <YellowButton bg="yellow" onClick={()=>{ 
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        cart.push(thisItem);
+        cart = Array.from(new Set(cart));
+        localStorage.setItem('cart',JSON.stringify(cart)); 
+    
+        }}> 장바구니 담기 </YellowButton>
+      <BlackButton bg="black" onClick={()=> {dispatch(addItem(thisItem))}}> 주문하기 </BlackButton>
+      <BlackButton bg="grey" onClick={()=> {navigate(-1)}}> 뒤로 </BlackButton>
 
       <ControlledTabs />
     </div>
